@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-
+import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
 @Component({
-  imports: [],
-  selector: 'app-manutencao-conteudo',
-  styleUrl: './manutencao-conteudo.css',
-  templateUrl: './manutencao-conteudo.html',
+  selector: "app-manutencao-conteudo",
+  imports: [RouterLink],
+  templateUrl: "./manutencao-conteudo.html",
+  styleUrl: "./manutencao-conteudo.css",
 })
 export class ManutencaoConteudo {}

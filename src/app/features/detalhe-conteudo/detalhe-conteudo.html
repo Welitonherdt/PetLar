@@ -1,1 +1,45 @@
-<p>detalhe-conteudo works!</p>
+@if (animal$ | async; as animal) {
+<article class="detalhe">
+  <a class="voltar" routerLink="/conteudos"><span>←</span> Voltar para animais</a>
+  <section class="apresentacao">
+    <div class="capa azul" aria-hidden="true">
+      <span>🐾</span><small>PetLar</small>
+    </div>
+    <div class="informacoes">
+      <span class="categoria">{{ animal.especie }}</span>
+      <h1>{{ animal.nome }}</h1>
+      <p class="introducao">{{ animal.descricao }}</p>
+      <div class="metadados">
+        <div><span>Raça</span><strong>{{ animal.raca }}</strong></div>
+        <div><span>Idade</span><strong>{{ animal.idadeMeses }} meses</strong></div>
+        <div><span>Porte</span><strong>{{ animal.porte }}</strong></div>
+      </div>
+      <p class="preco"><span>Disponibilidade</span><strong>{{ animal.disponivel ? 'Disponível para adoção' : 'Indisponível para adoção' }}</strong></p>
+      <button class="botao-principal" type="button">Quero adotar <span>→</span></button>
+      <p class="observacao">A ação de adoção poderá ser conectada à API posteriormente.</p>
+    </div>
+  </section>
+  <section class="descricao">
+    <div class="texto">
+      <span class="rotulo">Sobre este animal</span>
+      <h2>{{ animal.nome }}</h2>
+      <p>{{ animal.descricao }}</p>
+    </div>
+    <aside>
+      <h3>Cuidados para acolher</h3>
+      <ul>
+        @for (beneficio of ['Ambiente seguro', 'Alimentação adequada', 'Acompanhamento veterinário', 'Carinho e companhia']; track beneficio) {
+        <li><span>✓</span> {{ beneficio }}</li>
+        }
+      </ul>
+    </aside>
+  </section>
+</article>
+} @else {
+<section class="nao-encontrado">
+  <span>404</span>
+  <h1>Animal não encontrado</h1>
+  <p>O animal pode não existir ou ter sido removido da lista.</p>
+  <a routerLink="/conteudos">Ver todos os animais</a>
+</section>
+}

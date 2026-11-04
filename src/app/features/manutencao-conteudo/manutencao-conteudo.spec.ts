@@ -1,3 +1,4 @@
+import { provideRouter } from '@angular/router';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ManutencaoConteudo } from './manutencao-conteudo';
 
@@ -7,6 +8,7 @@ describe('ManutencaoConteudo', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [provideRouter([])],
       imports: [ManutencaoConteudo],
     }).compileComponents();
 

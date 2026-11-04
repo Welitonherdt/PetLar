@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
-
+import { Component } from "@angular/core";
 @Component({
-  imports: [],
-  selector: 'app-conteudos',
-  styleUrl: './conteudos.css',
-  templateUrl: './conteudos.html',
+  selector: "app-conteudos",
+  templateUrl: "./conteudos.html",
+  styleUrl: "./conteudos.css",
 })
 export class Conteudos {}

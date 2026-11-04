@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
-
+import { Component } from "@angular/core";
 @Component({
-  imports: [],
-  selector: 'app-sobre',
-  styleUrl: './sobre.css',
-  templateUrl: './sobre.html',
+  selector: "app-sobre",
+  templateUrl: "./sobre.html",
+  styleUrl: "./sobre.css",
 })
 export class Sobre {}

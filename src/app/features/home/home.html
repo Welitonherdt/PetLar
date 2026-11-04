@@ -1,1 +1,96 @@
-<p>home works!</p>
+<div class="home">
+  <section class="hero">
+    <div class="hero-conteudo">
+      <span class="etiqueta">PetLar — Portal de Adoção de Animais</span>
+      <h1>Todo animal merece <em>encontrar um lar.</em></h1>
+      <p>O PetLar reúne animais em busca de um lar e pessoas prontas para acolher — simples para quem apresenta um animal e acolhedor para quem deseja adotar.</p>
+      <div class="acoes">
+        <a class="botao botao-primario" routerLink="/conteudos">Conhecer os animais</a>
+        <a class="botao botao-secundario" routerLink="/sobre">Conhecer o projeto</a>
+      </div>
+      <div class="indicadores" aria-label="Destaques da plataforma">
+        <div><strong>100%</strong><span>acolhimento</span></div>
+        <div><strong>24/7</strong><span>para conhecer</span></div>
+        <div><strong>∞</strong><span>amor para dar</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="circulo circulo-um"></div>
+      <div class="circulo circulo-dois"></div>
+      <div class="cartao cartao-principal">
+        <span class="icone">🐾</span>
+        <small>Um novo começo</small>
+        <strong>Transforme uma vida com amor e cuidado.</strong>
+        <div class="linha"><span></span><span></span></div>
+      </div>
+      <div class="cartao cartao-flutuante cartao-vendas"><span>↗</span>
+        <div><strong>Adoção</strong><small>um encontro especial</small></div>
+      </div>
+      <div class="cartao cartao-flutuante cartao-criadores"><span>♥</span>
+        <div><strong>Famílias</strong><small>laços que acolhem</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vitrine" aria-labelledby="titulo-vitrine">
+    <div class="vitrine-cabecalho">
+      <div>
+        <span class="etiqueta">À espera de uma família</span>
+        <h2 id="titulo-vitrine">Animais em destaque</h2>
+        <p>Uma amostra dos amigos que esperam encontrar uma família.</p>
+      </div>
+      <div class="controles" aria-label="Controles do carrossel">
+        <button type="button" aria-label="Ver animais anteriores" (click)="moverCarrossel(trilho, -1)">←</button>
+        <button type="button" aria-label="Ver próximos animais" (click)="moverCarrossel(trilho, 1)">→</button>
+      </div>
+    </div>
+
+    <div class="trilho" #trilho tabindex="0" aria-label="Carrossel de animais em destaque">
+      @for (animal of animaisDestaque$ | async; track animal.id) {
+      <article class="card-conteudo">
+        <div class="capa" [class]="'capa ' + ['azul', 'dourado', 'verde', 'lilas', 'coral'][$index % 5]">
+          <span>🐾</span>
+          <small>PetLar</small>
+        </div>
+        <div class="card-corpo">
+          <span class="categoria">{{ animal.especie }}</span>
+          <h3>{{ animal.nome }}</h3>
+          <a [routerLink]="['/conteudos', animal.id]" [attr.aria-label]="'Conhecer ' + animal.nome">Conhecer
+            <span>→</span></a>
+        </div>
+      </article>
+      }
+    </div>
+    <p class="dica-arraste">Arraste para o lado para conhecer mais animais</p>
+  </section>
+
+  <section class="recursos" aria-labelledby="titulo-recursos">
+    <div class="cabecalho-secao">
+      <span class="etiqueta">Do encontro ao acolhimento</span>
+      <h2 id="titulo-recursos">Tudo o que um novo amigo precisa</h2>
+      <p>Uma experiência pensada para apresentar animais e aproximar quem deseja oferecer um novo lar.</p>
+    </div>
+    <div class="grade-recursos">
+      <article><span class="numero">01</span>
+        <h3>Apresente</h3>
+        <p>Reúna nome, espécie, raça, idade, porte e descrição de cada animal em um só lugar.</p>
+      </article>
+      <article class="destaque"><span class="numero">02</span>
+        <h3>Conheça</h3>
+        <p>Descubra a história de cada animal e conheça quem está procurando uma família.</p>
+      </article>
+      <article><span class="numero">03</span>
+        <h3>Acolha</h3>
+        <p>Prepare seu lar e sua rotina para receber um companheiro com carinho e responsabilidade.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="chamada-final">
+    <div><span class="etiqueta">Pronto para começar?</span>
+      <h2>Tem sempre um amigo esperando por uma nova chance.</h2>
+    </div>
+    <a class="botao botao-claro" routerLink="/conteudos">Ver animais <span>→</span></a>
+  </section>
+</div>
