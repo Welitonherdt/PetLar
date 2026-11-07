@@ -17,7 +17,7 @@
     background: linear-gradient(135deg, #f7f4ec 0%, #edf0f8 100%);
 }
 
-.hero-conteudo {
+.hero-texto {
     display: flex;
     padding: clamp(48px, 7vw, 96px);
     flex-direction: column;
@@ -46,7 +46,7 @@
     font-weight: 400;
 }
 
-.hero-conteudo>p {
+.hero-texto>p {
     max-width: 650px;
     margin: 0;
     color: #5d647b;
@@ -304,7 +304,7 @@
     scrollbar-color: #c3c8d8 transparent;
 }
 
-.card-conteudo {
+.card-animal {
     min-width: min(310px, 82vw);
     overflow: hidden;
     border: 1px solid #e0e3ec;
@@ -315,7 +315,7 @@
     transition: transform .25s, box-shadow .25s;
 }
 
-.card-conteudo:hover {
+.card-animal:hover {
     box-shadow: 0 18px 40px rgb(29 36 64 / 14%);
     transform: translateY(-6px);
 }
@@ -542,7 +542,7 @@
 }
 
 @media (max-width: 560px) {
-    .hero-conteudo {
+    .hero-texto {
         padding: 42px 24px;
     }
 

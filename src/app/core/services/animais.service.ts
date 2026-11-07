@@ -42,6 +42,29 @@ export class AnimaisService {
       );
     }
 
+    create(animal: Omit<Animal, "id">): Observable<Animal> {
+      return this.http
+      .post <{name: string }>
+      (this.apiUrl + this.sufix, animal)
+      .pipe(
+        map((response) => ({
+          id: response.name,
+          ...animal,
+        })),
+      );
+    }
+
+       update(id: string, animal: Omit<Animal, "id">): Observable<Animal> {
+      return this.http
+      .put <Omit<Animal, "id">>
+      (`${this.apiUrl}/${id}${this.sufix}` , animal)
+      .pipe(
+        map((response) => ({
+          id,
+          ...animal,
+        })),
+      );
+    }
     delete(id: string): Observable<void> {
       return this.http.delete<void>(`${this.apiUrl}/${id}${this.sufix}`);
     }

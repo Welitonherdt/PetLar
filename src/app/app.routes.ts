@@ -11,16 +11,16 @@ export const routes: Routes = [
     title: "Sobre | PetLar",
   },
   {
-    path: "conteudos",
+    path: "animais",
     loadComponent: () =>
-      import("./features/conteudos/conteudos").then((m) => m.Conteudos),
+      import("./features/animal/animal").then((m) => m.Animal),
     title: "Animais | PetLar",
   },
   {
-    path: "conteudos/:id",
+    path: "animais/:id",
     loadComponent: () =>
-      import("./features/detalhe-conteudo/detalhe-conteudo").then(
-        (m) => m.DetalheConteudo,
+      import("./features/detalhe-animal/detalhe-animal").then(
+        (m) => m.DetalheAnimal,
       ),
     title: "Detalhes do animal | PetLar",
   },
@@ -30,18 +30,18 @@ export const routes: Routes = [
     title: "Admin | PetLar",
   },
   {
-    path: "admin/novo",
+    path: "admin/form",
     loadComponent: () =>
-      import("./features/manutencao-conteudo/manutencao-conteudo").then(
-        (m) => m.ManutencaoConteudo,
+      import("./features/manutencao-animal/manutencao-animal").then(
+        (m) => m.ManutencaoAnimal,
       ),
     title: "Novo animal | PetLar",
   },
   {
-    path: "admin/editar/:id",
+    path: "admin/form/:id",
     loadComponent: () =>
-      import("./features/manutencao-conteudo/manutencao-conteudo").then(
-        (m) => m.ManutencaoConteudo,
+      import("./features/manutencao-animal/manutencao-animal").then(
+        (m) => m.ManutencaoAnimal,
       ),
     title: "Editar animal | PetLar",
   },
