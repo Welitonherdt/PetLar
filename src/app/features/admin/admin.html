@@ -1,46 +1,41 @@
-
 <section class="list-box">
   <div class="top-bar">
     <h2>Lista de Animais</h2>
-    <a routerLink="/admin/form" class="btn">Novo'</a>
+    <a routerLink="/admin/form" class="btn">Novo animal</a>
   </div>
-  @if(sucessMessage){
-  <div class="sucess-message">
+  @if (sucessMessage) {
+    <div class="sucess-message">
       {{ sucessMessage }}
-  </div>
+    </div>
   }
-  @if(errorMessage){
+  @if (errorMessage) {
     <div class="error-message">
       {{ errorMessage }}
     </div>
   }
 
-  @if (loading) {
+  @if (loading()) {
     <div class="loading">
       <p>Carregando animais...</p>
     </div>
   }
-  @if(!loading && animais.length === 0){
+  @if (!loading ()&& animais.length === 0) {
     <div class="empty-state">
       <p>Nenhum animal encontrado.</p>
     </div>
   }
 
-    <div class="animal-grid">
-      @for(animal of animais; track animal.id ){
-        <div class="animal-item">
-          <h3>{{ animal.nome }}</h3>
-          <p>{{ animal.descricao }}</p>
-          <p>{{ animal.disponivel }}</p>
-          <div class="actions">
-  <button type="button" class="btn-edit"  (click)="edit(animal.id)">
-    Editar
-  </button>
-  <button type="button" class="btn-delete" (click)="remove(animal.id)">
-    Excluir
-  </button>
-          </div>
+  <div class="animal-grid">
+    @for (animal of animais(); track animal.id) {
+      <div class="animal-item">
+        <h3>{{ animal.nome }}</h3>
+        <p>{{ animal.descricao }}</p>
+        <p>{{ animal.disponivel }}</p>
+        <div class="actions">
+          <button type="button" class="btn-edit" (click)="edit(animal.id)">Editar</button>
+          <button type="button" class="btn-delete" (click)="remove(animal.id)">Excluir</button>
         </div>
-      }
-    </div>
+      </div>
+    }
+  </div>
 </section>
